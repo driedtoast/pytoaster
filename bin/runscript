@@ -11,20 +11,22 @@ if [ -f "/etc/profile" ]; then
    source /etc/profile
 fi
 
-SERVICE_NAME=`dirname $0`/../
+SERVICE_NAME=`dirname $0`/..
 PID_FILE="/tmp/$SERVICE_NAME.pid"
-SERVICE_HOME=`dirname $0`/../
+SERVICE_HOME=`dirname $0`/..
 echo $SERVICE_HOME
 
-PYTHONPATH=$SERVICE_HOME/lib:$PYTHONPATH
+OLD_PATH=$PYTHONPATH
+NEWPYTHONPATH=$SERVICE_HOME/lib
 if [ -d "$SERVICE_HOME/third-party/lib/common" ]; then
-   PYTHONPATH=$SERVICE_HOME/third-party/lib/common:$PYTHONPATH 	
+   NEWPYTHONPATH=$SERVICE_HOME/third-party/lib/common:$NEWPYTHONPATH 	
 fi 
 if [ -d "$SERVICE_HOME/third-party/lib/platform" ]; then
-   PYTHONPATH=$SERVICE_HOME/third-party/lib/platform:$PYTHONPATH
+   NEWPYTHONPATH=$SERVICE_HOME/third-party/lib/platform:$NEWPYTHONPATH
 fi 
+PYTHONPATH=$NEWPYTHONPATH:$OLD_PATH
 
 
-export PYTHONPATH
+export PYTHONPATH=$NEWPYTHONPATH:$OLD_PATH
 
 python $1
