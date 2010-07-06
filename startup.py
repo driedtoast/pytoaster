@@ -29,7 +29,13 @@ if sys.argv:
         	if fp:
            		fp.close()
 	print('starting up '+app)
-	moduleLoaded.start(sys.argv[2:])	
+	config = None
+	cfgfile = './conf/%s.cfg' % app
+	if (os.path.exists(cfgfile)):
+		from config import Config
+		f = file(cfgfile)
+		config = Config(f)
+	moduleLoaded.start(sys.argv[2:],config)	
 else:
 	print('must provide an application name ')
         
