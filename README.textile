@@ -31,7 +31,7 @@ The general project layout will be:
 
 
 
-This is spawning out of snippets and code from the variouscrumbs project on github.
+This is spawning out of snippets and code from the "variouscrumbs":http://github.com/driedtoast/variouscrumbs project on github.
 
 h1. Resources and Notes
 
