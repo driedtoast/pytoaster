@@ -21,15 +21,16 @@ The general project layout will be:
 * bin - startup scripts and general bash scripts
 ** [projectname] - script that is based on the service script
 * conf - configuration files, will need to process with configuration util
-* lib - your modules and code
+* apps - your modules and code
+** appname - named after your application
 * build - build directory
 * startup.py - your python startup script
 * dependency.xml - dependant thirdparty libraries
 * third-party - will be populated by the distutils based on dependencies of the project
 ** data - data of third-party libs
-** scripts - scripts of third-party libs
+** bin - scripts of third-party libs
 ** lib/common - the purelib files from third-party
-** lib/platform - the platform files from the third-party
+** lib/site-packages - the site-packages files from the third-party
 
 
 
