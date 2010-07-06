@@ -11,6 +11,14 @@ The project consists of:
 Hopefully this will get to a point where it is a geneal packager for python applications.
 But its a work in progress.
 
+h2. Running 
+
+* Setup dependencies by 
+** cd bin
+** ./resolvedepends
+* Run application
+** python startup.py sample
+
 h2. Project Layout
 
 The general project layout will be:
