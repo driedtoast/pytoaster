@@ -16,7 +16,7 @@ def syncrepodata():
 #############
 ### start method
 #############
-def start(argv=None):
+def start(argv=None,config=None):
    	print argv
 	run(host='127.0.0.1', port=8099)
 
