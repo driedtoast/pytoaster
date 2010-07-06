@@ -20,8 +20,8 @@ PYTHONPATH=$SERVICE_HOME/lib:$PYTHONPATH
 if [ -d "$SERVICE_HOME/third-party/lib/common" ]; then
    PYTHONPATH=$SERVICE_HOME/third-party/lib/common:$PYTHONPATH 	
 fi 
-if [ -d "$SERVICE_HOME/third-party/lib/platform" ]; then
-   PYTHONPATH=$SERVICE_HOME/third-party/lib/platform:$PYTHONPATH
+if [ -d "$SERVICE_HOME/third-party/lib/site-packages" ]; then
+   PYTHONPATH=$SERVICE_HOME/third-party/lib/site-packages:$PYTHONPATH
 fi 
 
 

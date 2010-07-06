@@ -1,0 +1,31 @@
+#!/bin/sh
+#
+
+# Source function library
+
+if [ -f "/etc/rc.d/init.d/functions" ]; then
+  . /etc/rc.d/init.d/functions
+fi
+
+BASE_DIR=`dirname $0`/..
+cd $BASE_DIR
+BASE_DIR=`pwd`
+
+CONFIG_DIR=$BASE_DIR/conf
+SERVICE_HOME=$BASE_DIR
+echo "Loading config from $CONFIG_DIR"
+
+OLD_PATH=$PYTHONPATH
+NEWPYTHONPATH=`pwd`
+if [ -d "$SERVICE_HOME/third-party/lib/common" ]; then
+   NEWPYTHONPATH=$SERVICE_HOME/third-party/lib/common:$NEWPYTHONPATH 	
+fi 
+if [ -d "$SERVICE_HOME/third-party/lib/site-packages" ]; then
+   NEWPYTHONPATH=$SERVICE_HOME/third-party/lib/site-packages:$NEWPYTHONPATH
+fi 
+PYTHONPATH=$NEWPYTHONPATH:$OLD_PATH
+export PYTHONPATH=$NEWPYTHONPATH:$OLD_PATH
+
+cd $CONFIG_DIR/../third-party/lib/system
+
+python dependency.py $CONFIG_DIR/dependencies.cfg $SERVICE_HOME/bin/installpkg

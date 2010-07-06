@@ -1,7 +1,11 @@
 #!/bin/sh
 RUNNING_DIR=`pwd`
-CURR_DIR=`dirname $0`
-echo "Executing script from $CURR_DIR"
+CURR_DIR=$RUNNING_DIR
+if [ $2 ] ; then
+	CURR_DIR=$2
+else
+	CURR_DIR=`dirname $0`
+fi
 
 BASE_DIR="$CURR_DIR/../third-party"
 cd $BASE_DIR
