@@ -1,3 +1,4 @@
+h1. Overview
 
 The pytoaster is a project to setup your python application.
 This has come out of the idea that python apps should be able to run independantly much like packaging up other languages such as java, etc...
@@ -10,22 +11,18 @@ The project consists of:
 Hopefully this will get to a point where it is a geneal packager for python applications.
 But its a work in progress.
 
-Going to take advantage of the 2.4+ python features for distutils such as:
-* PYTHONPATH var in the scripts and the sys.path objects
-* The --install-purelib install option for distutils
-* The --install-platlib install option for distutils
-* The --install-scripts install option for distutils
-* The --install-data install option for distutils
+h2. Project Layout
 
 The general project layout will be:
 * bin - startup scripts and general bash scripts
 ** [projectname] - script that is based on the service script
+** resolvedepends - run to resolve the dependencies and add them to the project libs
 * conf - configuration files, will need to process with configuration util
+** dependencies.cfg - dependant thirdparty libraries
 * apps - your modules and code
-** appname - named after your application
+** [projectname] - named after your application
 * build - build directory
 * startup.py - your python startup script
-* dependency.xml - dependant thirdparty libraries
 * third-party - will be populated by the distutils based on dependencies of the project
 ** data - data of third-party libs
 ** bin - scripts of third-party libs
@@ -35,3 +32,14 @@ The general project layout will be:
 
 
 This is spawning out of snippets and code from the variouscrumbs project on github.
+
+h1. Resources and Notes
+
+
+Going to take advantage of the 2.4+ python features for distutils such as:
+* PYTHONPATH var in the scripts and the sys.path objects
+* The --install-purelib install option for distutils
+* The --install-platlib install option for distutils
+* The --install-scripts install option for distutils
+* The --install-data install option for distutils
+
