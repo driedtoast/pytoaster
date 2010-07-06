@@ -1,2 +1,36 @@
 
+import sys, os, imp
+
+commonlib = './third-party/lib/common/'
+sitepkgs = './third-party/lib/site-packages'
+
+
+sys.path.append(os.path.abspath(commonlib))
+sys.path.append(os.path.abspath(sitepkgs))
+
+
 ## starts up the application and configures it 
+
+if sys.argv:
+        app = sys.argv[1]
+	sys.path.append(os.path.abspath('./apps/'+app))
+	importname = 'application'
+	# __import__(importname)
+	try:
+        	moduleLoaded =  sys.modules[importname]
+    	except KeyError:
+        	pass
+	fp, pathname, description = imp.find_module(importname)
+
+    	try:
+        	moduleLoaded = imp.load_module(importname, fp, pathname, description)
+    	finally:
+        	# Since we may exit via an exception, close fp explicitly.
+        	if fp:
+           		fp.close()
+	print('starting up '+app)
+	moduleLoaded.start(sys.argv[2:])	
+else:
+	print('must provide an application name ')
+        
+
