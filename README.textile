@@ -11,43 +11,16 @@ The project consists of:
 Hopefully this will get to a point where it is a geneal packager for python applications.
 But its a work in progress.
 
-h2. Running 
-
-* Setup dependencies by 
-** cd bin
-** ./resolvedepends
-* Run application
-** python startup.py sample
-
-h2. Project Layout
-
-The general project layout will be:
-* bin - startup scripts and general bash scripts
-** [projectname] - script that is based on the service script
-** resolvedepends - run to resolve the dependencies and add them to the project libs
-* conf - configuration files, will need to process with configuration util
-** dependencies.cfg - dependant thirdparty libraries
-* apps - your modules and code
-** [projectname] - named after your application
-* build - build directory
-* startup.py - your python startup script
-* third-party - will be populated by the distutils based on dependencies of the project
-** data - data of third-party libs
-** bin - scripts of third-party libs
-** lib/common - the purelib files from third-party
-** lib/site-packages - the site-packages files from the third-party
-
-
 
 This is spawning out of snippets and code from the "variouscrumbs":http://github.com/driedtoast/variouscrumbs project on github.
 
-h1. Resources and Notes
+h2. Getting started
+
+See the "Getting Started":http://wiki.github.com/driedtoast/pytoaster/getting-started on the wiki. 
 
 
-Going to take advantage of the 2.4+ python features for distutils such as:
-* PYTHONPATH var in the scripts and the sys.path objects
-* The --install-purelib install option for distutils
-* The --install-platlib install option for distutils
-* The --install-scripts install option for distutils
-* The --install-data install option for distutils
+h2. Project Layout
+
+See the "Project Layout":http://wiki.github.com/driedtoast/pytoaster/project-layout on the wiki. 
+
 
