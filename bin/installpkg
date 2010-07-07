@@ -1,5 +1,21 @@
 #!/bin/sh
+
+
+
 RUNNING_DIR=`pwd`
+
+if [ ! $BASE_DIR ]; then
+	BASE_DIR=`dirname $0`/..
+	cd $BASE_DIR
+	## just need the hard path
+	BASE_DIR=`pwd`
+
+	## load up sample vars
+fi
+. $BASE_DIR/bin/toasterenv
+
+
+
 CURR_DIR=$RUNNING_DIR
 if [ $2 ] ; then
 	CURR_DIR=$2
@@ -7,14 +23,9 @@ else
 	CURR_DIR=`dirname $0`
 fi
 
-BASE_DIR="$CURR_DIR/../third-party"
-cd $BASE_DIR
-BASE_DIR=`pwd`
+BASE_DIR="$BASE_DIR/$THIRD_PARTY"
 cd $RUNNING_DIR
 
-SCRIPT_DIR="bin"
-DATA_DIR="share"
-LIB_DIR="lib/site-packages"
 
 mkdir -p "$BASE_DIR/$SCRIPT_DIR"
 mkdir -p "$BASE_DIR/$DATA_DIR"
