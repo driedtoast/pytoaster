@@ -20,8 +20,11 @@ def main(argz=None):
 		try:
 			if(os.path.exists(downloadpath) != True): 
 				os.makedirs(downloadpath)
-			pkgname = '%s-%s' % (m.name,m.version)
-			basepkgname= '%s/%s' % (downloadpath, pkgname)
+			fname = os.path.basename(m.location)
+                        fname = fname.replace('.tar','')
+                        fname = fname.replace('.gz','')
+                        fname = fname.replace('.tgz','')
+			basepkgname= '%s/%s' % (downloadpath, fname)
 			savelocation = '%s.tar.gz' % (basepkgname)
 			urllib.urlretrieve(m.location, savelocation) 
      			print('saved url ' + m.location + ' to ' + savelocation) 
