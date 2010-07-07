@@ -1,5 +1,5 @@
 
-import sys, os, imp
+import sys, os, imp, glob
 
 commonlib = './third-party/lib/common/'
 sitepkgs = './third-party/lib/site-packages'
@@ -7,6 +7,12 @@ sitepkgs = './third-party/lib/site-packages'
 
 sys.path.append(os.path.abspath(commonlib))
 sys.path.append(os.path.abspath(sitepkgs))
+
+## make sure the sitepkgs are added
+for currentf in glob.glob( os.path.join(sitepkgs, '*') ):
+        if os.path.isdir(currentf):
+                sys.path.append(os.path.abspath(currentf))
+
 
 
 ## starts up the application and configures it 
