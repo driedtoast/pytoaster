@@ -3,6 +3,7 @@ import sys, os, imp, glob
 
 ### Loads an import name
 def loadImportName(importname):
+	print(' importing :: ' + importname)
         moduleLoaded = None
         try:
                 moduleLoaded =  sys.modules[importname]
