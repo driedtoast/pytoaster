@@ -22,7 +22,9 @@ create(){
 	if [ $1 ]; then
         	echo "Creating new app: $1"
 		mkdir -p "$BASE_DIR/$APP_DIR/$1"
+		mkdir -p "$BASE_DIR/$TESTS_DIR/$1"
 		cp $BASE_DIR/bin/base_application.py $BASE_DIR/$APP_DIR/$1/application.py 
+		cp $BASE_DIR/bin/base_testsuite.py $BASE_DIR/$TESTS_DIR/$1/testsuite.py 
 		## add config?
 		echo "Created app $1 in $BASE_DIR/$APP_DIR/$"
 	else
