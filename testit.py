@@ -50,6 +50,11 @@ if sys.argv and len(sys.argv) > 1:
 	suite = None
 	if (testname == None or testclassname == None):
 		suite = unittest.TestLoader().loadTestsFromModule(moduleLoaded)
+                if(testname == None):
+                        ts = unittest.TestSuite()
+                        ts.addTests(suite)
+                        ts.addTests(moduleLoaded.AllTests())
+                        suite = ts
 	else:
 		suite = unittest.TestLoader().loadTestsFromTestCase(moduleLoaded[testclassname])
 	unittest.TextTestRunner(verbosity=2).run(suite)	
